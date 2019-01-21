@@ -1,24 +1,13 @@
-# README
+# fantasy-simpsons-basketball
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a fantasy basketball game simualtior which allows you to pick a tem of well known Simpson characters and pit them againt computer generated teams. It is written in Ruby for web browsers using HTML5.
 
-Things you may want to cover:
+## 
 
-* Ruby version
+## Installation
 
-* System dependencies
+## Contributing 
 
-* Configuration
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Please make sure to update tests as appropriate.
