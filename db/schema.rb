@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190121143719) do
+ActiveRecord::Schema.define(version: 20190121145539) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "team_id"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20190121143719) do
     t.string "name"
     t.integer "budget", default: 100
     t.string "username"
-    t.string "password"
+    t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
