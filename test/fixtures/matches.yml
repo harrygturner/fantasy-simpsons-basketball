@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_id_1: 1
+  team_id_2: 1
+  baskets_team_1: 1
+  baskets_team_2: 1
+  man_of_match: 1
+
+two:
+  team_id_1: 1
+  team_id_2: 1
+  baskets_team_1: 1
+  baskets_team_2: 1
+  man_of_match: 1

@@ -1,0 +1,2 @@
+class TeamPlayersController < ApplicationController
+end

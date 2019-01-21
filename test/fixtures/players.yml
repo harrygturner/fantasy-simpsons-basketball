@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  image: MyString
+  catchphrase: MyString
+  baserating: 1
+  height: 1
+
+two:
+  name: MyString
+  image: MyString
+  catchphrase: MyString
+  baserating: 1
+  height: 1
