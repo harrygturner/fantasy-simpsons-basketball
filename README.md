@@ -33,7 +33,7 @@ Players ratings can also improve depending on their performance in games this wi
 - Player
 - Team Player
 - Match
-(- League)
+- (League)
 
 ## Stretch Goals
 
