@@ -3,10 +3,33 @@ class PlayersController < ApplicationController
   before_action :find_player, only: [:show]
 
 
+  def selectplayers
+    @user = User.find(session[:user_id])
+    @team = @user.team
+    @players = Player.all
+    # byebugs
+    if @team.players.count == 0
+      @players = Player.all
+    else
+      @players = Player.all.reject{|player| @team.players.include?(player)}
+      # byebug
+    end
+    @players
+
+    render 'index'
+  end
+
   def index
     @players = Player.all
   end
   
+  
+  def addplayer
+    @user = User.find(session[:user_id])
+    TeamPlayer.create(team_id: @user.team.id, player_id: params[:player_id])
+    # byebug
+    redirect_to players_path
+  end
   private
 
   def find_player
