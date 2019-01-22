@@ -15,9 +15,26 @@
   <%= @user.name %>
 </h3>
 
-<%= link_to 'Create your team!', new_team_path %>
+<a href="<%= user_path(@user) %>">back here</a>
 
 <% if @team != nil %>
   <p>Team Name: <%= @team.name %></p>
   <p>Players: <%= %></p>
+  <div class="card-columns">
+<% @team.players.each do |player|%>
+  <div class="card bg-info mb-3">
+<%= image_tag player.image, class: "card-img-top" %>
+ <div class="card text-center bg-warning mb-3">
+  <h5 class="card-title"><%= player.name%></h5>
+ <p class="card-text">Height: <%= player.height%></p>
+ <p class="card-text">Rating: <%= player.baserating%></p>
+</div>
+</div>
 <% end %>
+</div>
+<% else %>
+<%= link_to 'Create your team!', new_team_path %>
+
+
+  <%end%>
+
