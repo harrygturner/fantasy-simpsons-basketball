@@ -10,7 +10,7 @@ class TeamsController < ApplicationController
 
   def create
     @team = Team.create(team_params)
-    byebug
+    # byebug
     redirect_to team_path(@team)
   end
   

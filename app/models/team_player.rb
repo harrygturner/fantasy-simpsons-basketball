@@ -1,7 +1,7 @@
 class TeamPlayer < ApplicationRecord
   belongs_to :team
   belongs_to :player
-  before_save :default_values
+  before_create :default_values
 
   def name
     self.player.name

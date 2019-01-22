@@ -7,6 +7,13 @@
   <h5 class="card-title"><%= player.name%></h5>
  <p class="card-text">Height: <%= player.height%></p>
  <p class="card-text">Rating: <%= player.baserating%></p>
+<% if @team == nil%>
+<% else @team.players.count < 5  %>
+  <%= form_tag("/addplayer", method: "post") do %>
+    <%= hidden_field_tag :player_id, player.id %>
+    <%= submit_tag "Add Player" %>
+  <% end %>
+<% end %>
 </div>
 </div>
   <%end%>
