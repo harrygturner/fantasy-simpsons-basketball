@@ -27,7 +27,7 @@ class PlayersController < ApplicationController
     @user = User.find(session[:user_id])
     TeamPlayer.create(team_id: @user.team.id, player_id: params[:player_id])
     # byebug
-    redirect_to players_path
+    redirect_to selectplayers_path
   end
 
   private
