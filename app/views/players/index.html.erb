@@ -9,6 +9,7 @@
  <p class="card-text">Height: <%= player.height%></p>
  <p class="card-text">Rating: <%= player.baserating%></p>
 <% if @team == nil %>
+<%= link_to 'View Player', player_path(player) %>
 <% else @team.players.count < 5  %>
   <%= form_tag("/addplayer", method: "post") do %>
     <%= hidden_field_tag :player_id, player.id %>

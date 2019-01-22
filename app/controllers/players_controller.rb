@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
     @user = User.find(session[:user_id])
     @team = @user.team
     @players = Player.all
-    # byebugs
+    
     if @team.players.count == 0
       @players = Player.all
     else
@@ -14,9 +14,11 @@ class PlayersController < ApplicationController
       # byebug
     end
     @players
-    
   end
 
+  def show
+
+  end
   def index
     @players = Player.all
   end

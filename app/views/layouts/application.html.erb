@@ -9,11 +9,11 @@
   </head>
 
   <body>
-  <div class="container w-75 p-3">
+  
     <%= link_to "Log out", logout_path, method: :delete %>
     <h1 class ="text-center">Simpson Fantasy Basketball</h1>
     <%= session[:user_id] ? session[:user_id] : "no user" %><br>
-    
+    <div class="container w-75 p-3">
     <%= yield %>
     </div>
   </body>
