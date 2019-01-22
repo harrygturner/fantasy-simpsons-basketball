@@ -19,8 +19,8 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the Simpson Fantasy Basketball League"
       redirect_to @user
     else
-      flash[:errors] = @user.errors.full_messages
-      render "new"
+      flash.now[:errors] = @user.errors.full_messages
+      render 'new'
     end
   end
 

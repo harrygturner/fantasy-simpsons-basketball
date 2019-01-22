@@ -1,5 +1,9 @@
 <h3>Log in</h3>
 
+<% if flash[:invalid] %>
+  <%= flash[:invalid] %>
+<% end %>
+
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.label :username %>
   <%= f.text_field :username %><br>
