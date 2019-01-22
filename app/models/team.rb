@@ -9,6 +9,6 @@ class Team < ApplicationRecord
     self.team_players.each do |player|
       teamtotal += player.rating
     end
-    teamtotal / self.team_players.count
+    (teamtotal / self.team_players.count) / 2
   end
 end
