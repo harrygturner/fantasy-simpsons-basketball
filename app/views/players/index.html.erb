@@ -1,9 +1,9 @@
-<h1>All Players</h1>
+<h1 class="text-center">All Players</h1>
 <div class="card-columns">
 <% @players.each do |player|%>
-  <div class="card">
+  <div class="card bg-info mb-3">
 <%= image_tag player.image, class: "card-img-top" %>
- <div class="card-body-center">
+ <div class="card text-center bg-warning mb-3">
   <h5 class="card-title"><%= player.name%></h5>
  <p class="card-text">Height: <%= player.height%></p>
  <p class="card-text">Rating: <%= player.baserating%></p>
