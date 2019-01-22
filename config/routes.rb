@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :team_players
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  get "/", to: "users#index"
+  get "/", to: "users#index", as: 'root'
 end
