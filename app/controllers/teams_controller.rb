@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+  before_action :require_login
+  
   private
 
   def find_team
