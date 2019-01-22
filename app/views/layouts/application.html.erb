@@ -9,8 +9,9 @@
   </head>
 
   <body>
+    <%= link_to "Log out", logout_path, method: :delete %>
     <h1>Simpson Fantasy Basketball</h1>
-    <%= session.id %>
+    <%= session[:user_id] ? session[:user_id] : "no user" %><br>
     <%= yield %>
   </body>
 </html>
