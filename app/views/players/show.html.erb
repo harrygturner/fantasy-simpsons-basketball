@@ -1,1 +1,11 @@
-<%= render 'player'%>
+<div class="card text-center justify-content-center my-auto mx-auto" style="width: 300px;">
+
+<%= image_tag @player.image, class: "card-img-top" %>
+ <div class="card-body">
+  <h5 class="card-title"><%= @player.name%></h5>
+<h6 class="card-subtitle mb-2"><%=@player.catchphrase%></h6>
+ <p class="card-text">Height: <%= @player.height%></p>
+ <p class="card-text">Rating: <%= @player.baserating%></p>
+
+</div>
+</div>
