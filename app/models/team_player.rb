@@ -1,6 +1,7 @@
 class TeamPlayer < ApplicationRecord
   belongs_to :team
   belongs_to :player
+  before_save :default_values
 
   def name
     self.player.name
@@ -29,5 +30,12 @@ class TeamPlayer < ApplicationRecord
       modifier = rand(0.8..1)
     end
     modifier
+  end
+
+
+  private
+
+  def default_values
+    self.rating = self.player.baserating
   end
 end
