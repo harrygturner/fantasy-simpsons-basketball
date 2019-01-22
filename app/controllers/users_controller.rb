@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
   require "rack-flash"
-  before_action :require_login
 
   def index
   end
@@ -28,7 +27,7 @@ class UsersController < ApplicationController
 
   def edit
     find_user
-    
+
   end
 
   private
