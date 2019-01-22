@@ -15,5 +15,11 @@ class Match < ApplicationRecord
   end
 
   def away_baskets
+    teammod = self.away_team.teammodifier
+    team_baskets = []
+    self.away_team.team_players.each do |player|
+      team_baskets[player.name] = (player.modifier * teammod).to_i
+    end
+    team_baskets
   end
 end
