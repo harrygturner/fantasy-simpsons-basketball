@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
   require "rack-flash"
+  before_action :find_user
+
 
   def index
   end
 
   def new
     @user = User.new
+    render layout: '_login'
   end
 
   def show
-    find_user
     @team = @user.team
   end
 
@@ -27,11 +29,9 @@ class UsersController < ApplicationController
   end
 
   def edit
-    find_user
   end
 
   def update
-    find_user
     if @user.update_attributes(user_params)
       @user.update(user_params)
       flash[:update] = "Your changes have been successfully updated!"
@@ -51,4 +51,5 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
+
 end

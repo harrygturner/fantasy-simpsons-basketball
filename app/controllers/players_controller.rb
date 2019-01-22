@@ -1,10 +1,10 @@
 class PlayersController < ApplicationController
   before_action :require_login
   before_action :find_player, only: [:show]
+  before_action :find_user
 
 
   def selectplayers
-    @user = User.find(session[:user_id])
     @team = @user.team
     @players = Player.all
     byebug
@@ -25,7 +25,6 @@ class PlayersController < ApplicationController
 
 
   def addplayer
-    @user = User.find(session[:user_id])
     TeamPlayer.create(team_id: @user.team.id, player_id: params[:player_id])
     # byebug
     redirect_to players_path
@@ -35,4 +34,9 @@ class PlayersController < ApplicationController
   def find_player
     @player = Player.find(params[:id])
   end
+
+  def find_user
+    @user = User.find(session[:user_id])
+  end
+
 end
