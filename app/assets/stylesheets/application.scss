@@ -1,1 +1,8 @@
-@import 'bootstrap'
+@import 'bootstrap';
+@import 'fontface';
+@include fontFace('Simpsons', 'simpsonfont');
+
+h1{
+  font-family: 'Simpsons';
+};
+

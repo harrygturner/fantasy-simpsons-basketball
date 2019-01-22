@@ -4,7 +4,7 @@ require 'csv'
 class CsvSeed
     def self.read_csv
         arr = []
-        byebug
+        
         CSV.foreach("db/seedcontrol/test.csv") do |row|
             arr << row
         end

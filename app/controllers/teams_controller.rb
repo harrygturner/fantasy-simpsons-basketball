@@ -1,4 +1,6 @@
 class TeamsController < ApplicationController
+
+  before_action :require_login
   
   def new
     @team = Team.new
@@ -15,6 +17,7 @@ class TeamsController < ApplicationController
   def show
     @team = Team.find(params[:id])
   end
+
   private
 
   def find_team

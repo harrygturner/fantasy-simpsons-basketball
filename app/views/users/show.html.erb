@@ -1,7 +1,11 @@
+<%= link_to "Edit account", edit_user_path %> <br>
+
 <% if flash[:success] %>
   <%= flash[:success] %>
 <% elsif flash[:valid] %>
   <%= flash[:valid] %>
+<% elsif flash[:update] %>
+  <%= flash[:update] %>
 <% end %>
 
 <% provide(:title, @user.first_name) %>
@@ -11,7 +15,9 @@
   <%= @user.name %>
 </h3>
 
-<%= link_to 'Create a new team', new_team_url %>
+<%= link_to 'Create your team!', new_team_path %>
 
-<p>Team Name:</p>
-<p>Team:</p>
+<% if @team != nil %>
+  <p>Team Name: <%= @team.name %></p>
+  <p>Players: <%= %></p>
+<% end %>

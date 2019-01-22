@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :matches
-  resources :users, only: %i[index new show create destroy]
+  resources :users
   resources :teams
   resources :players
   resources :team_players
