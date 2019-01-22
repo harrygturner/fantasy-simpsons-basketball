@@ -1,0 +1,21 @@
+<h1 class="text-center">All Players</h1>
+<div class="card-columns">
+<% @players.each do |player|%>
+  <div class="card bg-info mb-3">
+  <%= image_tag player.image, class: "card-img-top" %>
+  <div class="card text-center bg-warning mb-3">
+  <h5 class="card-title"><%= player.name%></h5>
+  <h6 class="card-subtitle mb-2"><%=player.catchphrase%></h6>
+ <p class="card-text">Height: <%= player.height%></p>
+ <p class="card-text">Rating: <%= player.baserating%></p>
+<% if @team == nil%>
+<% else @team.players.count < 5  %>
+  <%= form_tag("/addplayer", method: "post") do %>
+    <%= hidden_field_tag :player_id, player.id %>
+    <%= submit_tag "Add Player" %>
+  <% end %>
+<% end %>
+</div>
+</div>
+  <%end%>
+  </div>

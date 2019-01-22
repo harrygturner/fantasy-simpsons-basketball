@@ -15,8 +15,7 @@ class PlayersController < ApplicationController
       # byebug
     end
     @players
-
-    render 'index'
+    
   end
 
   def index
