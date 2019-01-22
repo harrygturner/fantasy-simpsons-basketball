@@ -2,6 +2,10 @@ class TeamPlayer < ApplicationRecord
   belongs_to :team
   belongs_to :player
 
+  def name
+    self.player.name
+  end
+
   def modifier
     modifier = 0.0
     case rating
@@ -26,6 +30,4 @@ class TeamPlayer < ApplicationRecord
     end
     modifier
   end
-
-  
 end
