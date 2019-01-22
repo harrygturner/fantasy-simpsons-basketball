@@ -27,13 +27,24 @@ class UsersController < ApplicationController
 
   def edit
     find_user
+  end
 
+  def update
+    find_user
+    if @user.update_attributes(user_params)
+      @user.update(user_params)
+      flash[:update] = "Your changes have been successfully updated!"
+      redirect_to user_path
+    else
+      flash[:errors] = @user.errors.full_messages
+      render 'edit'
+    end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:name, :username, :password)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation)
   end
 
   def find_user
