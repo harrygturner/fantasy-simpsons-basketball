@@ -1,7 +1,11 @@
+<%= link_to "Edit account", edit_user_path %> <br>
+
 <% if flash[:success] %>
   <%= flash[:success] %>
 <% elsif flash[:valid] %>
   <%= flash[:valid] %>
+<% elsif flash[:update] %>
+  <%= flash[:update] %>
 <% end %>
 
 <% provide(:title, @user.first_name) %>
