@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   require "rack-flash"
+  before_action :require_login
 
   def index
   end
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
 
   def show
     find_user
+    @team = @user.team
   end
 
   def create
@@ -22,6 +24,11 @@ class UsersController < ApplicationController
       flash.now[:errors] = @user.errors.full_messages
       render 'new'
     end
+  end
+
+  def edit
+    find_user
+    
   end
 
   private
