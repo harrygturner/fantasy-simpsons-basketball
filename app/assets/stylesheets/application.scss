@@ -2,7 +2,7 @@
 @import 'fontface';
 @include fontFace('Simpsons', 'simpsonfont');
 
-h1, h5{
+h1, h3{
   font-family: 'Simpsons';
 };
 
