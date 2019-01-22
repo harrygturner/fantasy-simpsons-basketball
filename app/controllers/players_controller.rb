@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
     @user = User.find(session[:user_id])
     @team = @user.team
     @players = Player.all
-    # byebugs
+    byebug
     if @team.players.count == 0
       @players = Player.all
     else
@@ -22,8 +22,8 @@ class PlayersController < ApplicationController
   def index
     @players = Player.all
   end
-  
-  
+
+
   def addplayer
     @user = User.find(session[:user_id])
     TeamPlayer.create(team_id: @user.team.id, player_id: params[:player_id])
