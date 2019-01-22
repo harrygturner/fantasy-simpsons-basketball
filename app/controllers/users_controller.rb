@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  require 'rack-flash'
+  require "rack-flash"
 
   def index
   end
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    find_user
   end
 
   def create
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash[:errors] = @user.errors.full_messages
-      render 'new'
+      render "new"
     end
   end
 
@@ -30,4 +30,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :username, :password)
   end
 
+  def find_user
+    @user = User.find(params[:id])
+  end
 end
