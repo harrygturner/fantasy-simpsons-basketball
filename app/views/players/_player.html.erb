@@ -1,0 +1,10 @@
+<div class="card" style="width: 150px;">
+
+<%= image_tag self.image, class: "card-img-top" %>
+ <div class="card-body">
+  <h5 class="card-title"><%= name%></h5>
+ <p class="card-text">Height: <%= height%></p>
+ <p class="card-text">Rating: <%= baserating%></p>
+<%= link_to 'Add to team', user_path %>
+</div>
+</div>

@@ -1,0 +1,13 @@
+<h1>All Players</h1>
+<div class="card-columns">
+<% @players.each do |player|%>
+  <div class="card">
+<%= image_tag player.image, class: "card-img-top" %>
+ <div class="card-body-center">
+  <h5 class="card-title"><%= player.name%></h5>
+ <p class="card-text">Height: <%= player.height%></p>
+ <p class="card-text">Rating: <%= player.baserating%></p>
+</div>
+</div>
+  <%end%>
+  </div>
