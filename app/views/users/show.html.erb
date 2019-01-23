@@ -16,13 +16,13 @@
   <p>Team Name: <%= @team.name %></p>
   <p>Players:</p>
 <div class="card-columns">
-  <% @team.players.each do |player|%>
+  <% @team.team_players.each do |team_player|%>
     <div class="card bg-info mb-3">
-      <%= image_tag player.image, class: "card-img-top" %>
+      <%= image_tag team_player.player.image, class: "card-img-top" %>
       <div class="card text-center bg-warning mb-3">
-        <h5 class="card-title"><%= player.name%></h5>
-        <p class="card-text">Height: <%= player.height%></p>
-        <p class="card-text">Rating: <%= player.baserating%></p>
+        <h5 class="card-title"><%= team_player.player.name%></h5>
+        <p class="card-text">Height: <%= team_player.player.height%></p>
+        <p class="card-text">Rating: <%= team_player.rating%></p>
       </div>
     </div>
     <% end %>
