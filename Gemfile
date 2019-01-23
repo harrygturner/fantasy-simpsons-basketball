@@ -36,7 +36,7 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'rack-flash3'
 gem 'bcrypt'
-
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
