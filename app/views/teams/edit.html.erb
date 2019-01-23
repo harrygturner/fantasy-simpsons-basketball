@@ -2,7 +2,7 @@
 <% if @players.count < 5 %>
   <h6>You only have <%= pluralize(@team.players.count, 'player') %> in your team, you need 5, <%= link_to "add more players", selectplayers_path %> here!</h6>
 <% end %>
-
+<%= @team.id%>
 <div class="card-columns">
 
 <% @players.each do |player|%>

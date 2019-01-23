@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
-  get '/signup', to: 'users#new'
-  get '/login', to: 'sessions#new', as: 'login'
-  post '/login', to: 'sessions#create'
-  delete '/logout', to: 'sessions#destroy'
-  post '/addplayer', to: 'players#addplayer'
-  get '/selectplayers', to: 'players#selectplayers', as: 'selectplayers'
-  post '/removeplayer', to: 'players#removeplayer'
+  get "/signup", to: "users#new"
+  get "/login", to: "sessions#new", as: "login"
+  post "/login", to: "sessions#create"
+  delete "/logout", to: "sessions#destroy"
+  post "/addplayer", to: "players#addplayer"
+  get "/selectplayers", to: "players#selectplayers", as: "selectplayers"
+  post "/removeplayer", to: "players#removeplayer"
+  get "/", to: "sessions#new", as: "root"
   resources :matches
   resources :users
   resources :teams

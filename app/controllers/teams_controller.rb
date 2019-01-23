@@ -6,7 +6,6 @@ class TeamsController < ApplicationController
   def new
     @team = Team.new
     @players = Player.all
-
   end
 
   def create

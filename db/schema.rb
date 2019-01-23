@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190121145539) do
+ActiveRecord::Schema.define(version: 20190123162157) do
 
   create_table "matches", force: :cascade do |t|
     t.integer "team_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20190121145539) do
     t.integer "player_id"
     t.integer "rating"
     t.integer "matchbaskets"
-    t.integer "totalbaskets"
+    t.integer "totalbaskets", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
