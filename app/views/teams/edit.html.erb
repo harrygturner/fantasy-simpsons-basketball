@@ -1,6 +1,8 @@
 <h2><%= @team.name %></h2>
 <% if @players.count < 5 %>
   <h6>You only have <%= pluralize(@team.players.count, 'player') %> in your team, you need 5, <%= link_to "add more players", selectplayers_path %> here!</h6>
+<% elsif @players.count == 5 %>
+  <h6>Team is full! Need to remove some players.</h6>
 <% end %>
 
 <div class="card-columns">
