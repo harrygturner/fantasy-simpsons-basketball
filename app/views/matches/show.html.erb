@@ -1,12 +1,15 @@
 <h1>Match Number <%=@match.id%></h1>
 <h4>Home Team: <%=@match.team.name%></h4>
 <h4>Away Team: <%=@match.away_team.name%></h4>
-<h4>MVP: <%=@match.mvp%></h4>
-<h4>Home Score: <%=@match.baskets_team_1%></h4>
-<h4>Away Score: <%=@match.baskets_team_2%></h4>
-<%@hometeam.each do |player|%>
-<%=player.name%><%=player.matchbaskets%>
+
+
+<%@hometeam.team_players.each do |player|%>
+<%=player.name%><%=player.rating%>
 <%end%>
-<%@awayteam.each do |player|%>
-<%=player.name%><%=player.matchbaskets%>
+<%@awayteam.team_players.each do |player|%>
+<%=player.name%><%=player.rating%>
 <%end%>
+
+<%= form_tag("/play", method: :post)%>
+    <%= hidden_field_tag :match_id, @match.id %>
+<%= submit_tag "Play Game!" %>

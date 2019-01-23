@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get "/selectplayers", to: "players#selectplayers", as: "selectplayers"
   post "/removeplayer", to: "players#removeplayer"
   get "/", to: "sessions#new", as: "root"
+  post "/game", to: "matches#create"
+  get "/play", to: "matches#show"
   resources :matches
   resources :users
   resources :teams
