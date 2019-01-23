@@ -2,7 +2,7 @@
 @import 'fontface';
 @include fontFace('Simpsons', 'simpsonfont');
 
-h1, h3{
+h1, h3, h6, h2, h4, h5{
   font-family: 'Simpsons';
 };
 
@@ -16,4 +16,13 @@ body{
 
 .ws-ht {
   margin-top: 50px;
+}
+
+.flash-error {
+
+  background-color: rgba(244, 86, 66, 0.8);
+  border-radius: 5px;
+  box-shadow: 5px, 5px,  rgba(0, 0, 0, 0.555);
+  text-transform: uppercase;
+  
 }
