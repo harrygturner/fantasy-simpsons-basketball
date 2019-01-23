@@ -1,5 +1,9 @@
 <h1 class="text-center">All Players</h1>
 <div class="card-columns">
+  <% if flash[:error] %>
+    <%= flash[:error] %>
+  <% end %>
+  
 <% @players.each do |player|%>
   <div class="card bg-info mb-3">
   <%= image_tag player.image, class: "card-img-top" %>
@@ -8,6 +12,7 @@
   <h6 class="card-subtitle mb-2 lead">"<%=player.catchphrase%>"</h6>
  <p class="card-text">Height: <%= player.height%></p>
  <p class="card-text">Rating: <%= player.baserating%></p>
+ <p class="card-text">Value: £<%= player.value%></p>
 
 <% if @team.players.count < 5  %>
   <%= form_tag("/addplayer", method: "post") do %>
