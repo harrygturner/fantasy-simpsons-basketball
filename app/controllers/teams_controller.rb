@@ -3,6 +3,11 @@ class TeamsController < ApplicationController
   before_action :find_team, only: %i[edit show]
   before_action :require_login
 
+
+  def index
+    @teams = Team.all
+  end
+
   def new
     @team = Team.new
     @players = Player.all

@@ -1,0 +1,12 @@
+<% @teams.each do |team| %>
+    <p>Team Name: <%= team.name %>| Owner: <%= team.user.name %> 
+    <% if team.user != @user %>
+      <%= form_tag("/game", method: :post)%>
+      <%= hidden_field_tag :away_team, team.id %>
+        <%= submit_tag "Setup Game!" %>
+      
+    <% end %>
+  
+  
+  </p>
+<% end %>
