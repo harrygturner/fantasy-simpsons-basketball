@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   post '/addplayer', to: 'players#addplayer'
   get '/selectplayers', to: 'players#selectplayers', as: 'selectplayers'
+  post '/removeplayer', to: 'players#removeplayer'
   resources :matches
   resources :users
   resources :teams

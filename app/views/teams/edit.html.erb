@@ -1,1 +1,25 @@
-<h2>Need to add a method to transfer players!!!</h2>
+<h2><%= @team.name %></h2>
+<% if @players.count < 5 %>
+  <h6>You only have <%= pluralize(@team.players.count, 'player') %> in your team, you need 5, <%= link_to "add more players", selectplayers_path %> here!</h6>
+<% end %>
+
+<div class="card-columns">
+
+<% @players.each do |player|%>
+  <div class="card bg-info mb-3">
+  <%= image_tag player.image, class: "card-img-top" %>
+    <div class="card text-center bg-warning mb-3">
+      <h5 class="card-title"><%= player.name%></h5>
+        <h6 class="card-subtitle mb-2 lead">"<%=player.catchphrase%>"</h6>
+          <p class="card-text">Height: <%= player.height%></p>
+          <p class="card-text">Rating: <%= player.baserating%></p>
+          <p class="card-text">Value: £<%= player.value%></p>
+        <%= form_tag("/removeplayer", method: "post") do %>
+          <%= hidden_field_tag :player_id, player.id %>
+          <%= submit_tag "Remove Player" %>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+
+</div>

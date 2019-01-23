@@ -38,8 +38,13 @@ class PlayersController < ApplicationController
     elsif @team.players.count == 5
       flash[:error] = "You squad is full!"
       redirect_to user_path(@user)
-
     end
+  end
+
+  def removeplayer
+    t_p = TeamPlayer.find_by(player_id: params[:player_id])
+    t_p.destroy
+    redirect_to edit_team_path(@user.id)
   end
 
   private

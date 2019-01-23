@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light" style="background-color: rgba(248,249,250,0.7);">
       <a class="navbar-brand" href="#"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -37,8 +37,9 @@
         </span>
       </div>
     </nav>
+    <h1 class ="text-center ws-ht" style="padding-top :10px">Simpson Fantasy Basketball</h1>
+
   <div class="container w-75 p-3 ws-ht">
-    <h1 class ="text-center">Simpson Fantasy Basketball</h1>
     <%= session[:user_id] ? session[:user_id] : "no user" %><br>
 
     <%= yield %>
