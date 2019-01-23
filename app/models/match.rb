@@ -4,6 +4,7 @@ class Match < ApplicationRecord
   @@totalscore = {}
   @@homescore = {}
   @@awayscore = {}
+  @@score = {}
 
   def mvp
     TeamPlayer.find(self.man_of_match).name
@@ -19,12 +20,16 @@ class Match < ApplicationRecord
     @@totalscore
   end
 
-  def homescore
+  def home_score
     @@homescore
   end
 
-  def awayscore
+  def away_score
     @@awayscore
+  end
+
+  def final_score
+    @@score
   end
 
   def home_baskets
@@ -32,8 +37,10 @@ class Match < ApplicationRecord
     team_baskets = {}
     self.team.team_players.each do |player|
       baskets = (player.modifier * teammod).to_i
+      player.matchbaskets = baskets
       player.totalbaskets += baskets
       team_baskets[player.name] = baskets
+      player.save
     end
     @@totalscore[:home] = team_baskets
   end
@@ -44,8 +51,10 @@ class Match < ApplicationRecord
     team = away_team
     team.team_players.each do |player|
       baskets = (player.modifier * teammod).to_i
+      player.matchbaskets = baskets
       player.totalbaskets += baskets
       team_baskets[player.name] = baskets
+      player.save
     end
     @@totalscore[:away] = team_baskets
   end
@@ -63,7 +72,10 @@ class Match < ApplicationRecord
         end
       end
     end
-    score = {home: homescore, away: awayscore}
+    self.baskets_team_1 = homescore
+    self.baskets_team_2 = awayscore
+    self.save
+    @@score = {home: homescore, away: awayscore}
   end
 
   def highest_scorer
