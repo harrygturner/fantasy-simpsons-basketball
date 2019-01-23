@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Profile
@@ -21,9 +21,9 @@
       <li class="nav-item">
         <a class="nav-link" href="/teams">Other Teams</a>
       </li>
-      <li class="nav-item">
-        <%= link_to "Log out", logout_path, method: :delete, class:"nav-link" %>
-      </li>
     </ul>
+    <span class="navbar-text nav-link">
+      <%= link_to "Log out", logout_path, method: :delete, class:"nav-link" %>
+    </span>
   </div>
 </nav>

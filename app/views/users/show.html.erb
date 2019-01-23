@@ -12,8 +12,10 @@
   <%= @user.name %>
 </h3>
 
+
 <% if @team != nil %>
   <p>Team Name: <%= @team.name %></p>
+  <p>Current Budget: £<%= @user.current_budget %></p>
   <p>Players:</p>
 <div class="card-columns">
   <% @team.players.each do |player|%>
@@ -23,10 +25,15 @@
         <h5 class="card-title"><%= player.name%></h5>
         <p class="card-text">Height: <%= player.height%></p>
         <p class="card-text">Rating: <%= player.baserating%></p>
+        <p class="card-text">Value: £<%= player.value%></p>
       </div>
     </div>
     <% end %>
   </div>
+  <% if @team.players.count < 5 %>
+    <%= link_to "Add more players", selectplayers_path %>
+  <% end %>
 <% else %>
+  <h5>Current budget: £<%= @user.budget %></h5>
   <%= link_to 'Create your team!', new_team_path %>
 <%end%>

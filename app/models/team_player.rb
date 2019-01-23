@@ -7,6 +7,10 @@ class TeamPlayer < ApplicationRecord
     self.player.name
   end
 
+  def value
+    self.player.value
+  end
+
   def modifier
     modifier = 0.0
     case rating
