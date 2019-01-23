@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   post "/addplayer", to: "players#addplayer"
   get "/selectplayers", to: "players#selectplayers", as: "selectplayers"
   post "/removeplayer", to: "players#removeplayer"
-  get "/", to: "sessions#new", as: "root"
   resources :matches
   resources :users
   resources :teams
