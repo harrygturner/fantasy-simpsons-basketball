@@ -10,8 +10,8 @@
           Profile
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="<%= user_path(@user) %>">My Team</a>
           <a class="dropdown-item" href="<%= edit_team_path(@user.id) %>">Edit My Team</a>
-          <a class="dropdown-item" href="<%= user_path(@user) %>">My Account</a>
           <a class="dropdown-item" href="<%= edit_user_path(@user) %>">Edit Account</a>
         </div>
       </li>
