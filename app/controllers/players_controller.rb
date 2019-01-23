@@ -6,7 +6,7 @@ class PlayersController < ApplicationController
   def selectplayers
     @team = @user.team
     @players = Player.all
-    
+
     if @team.players.count == 0
       @players = Player.all
     else
@@ -14,6 +14,7 @@ class PlayersController < ApplicationController
       # byebug
     end
     @players
+    render :layout => "_header_team"
   end
 
   def show
@@ -24,9 +25,26 @@ class PlayersController < ApplicationController
   end
 
   def addplayer
-    TeamPlayer.create(team_id: @user.team.id, player_id: params[:player_id])
+    @team = @user.team
+    player = TeamPlayer.new(team_id: @user.team.id, player_id: params[:player_id])
+
+    if @user.current_budget - player.value < 0
+      flash[:error] = "You can't afford him, sorry!"
+      redirect_to selectplayers_path
+    elsif @team.players.count < 5 && @user.current_budget >= 0
+      player.save
     # byebug
-    redirect_to selectplayers_path
+      redirect_to selectplayers_path
+    elsif @team.players.count == 5
+      flash[:error] = "You squad is full!"
+      redirect_to user_path(@user)
+    end
+  end
+
+  def removeplayer
+    t_p = TeamPlayer.find_by(player_id: params[:player_id])
+    t_p.destroy
+    redirect_to edit_team_path(@user.id)
   end
 
   private

@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :find_user
+  before_action :find_team, only: %i[edit show]
   before_action :require_login
 
   def new
@@ -13,11 +14,11 @@ class TeamsController < ApplicationController
     redirect_to team_path(@team)
   end
 
-  def edit
-  end 
-
   def show
-    @team = Team.find(params[:id])
+  end
+
+  def edit
+    @players = @team.players
   end
 
   private

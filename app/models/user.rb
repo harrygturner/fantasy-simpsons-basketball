@@ -11,4 +11,13 @@ class User < ApplicationRecord
     f_n = name_array.first
   end
 
+  def current_budget
+    total = self.budget
+    player_total = 0
+    self.team.players.each do |player|
+      player_total += player.value
+    end
+    c_b = total - player_total
+  end
+
 end

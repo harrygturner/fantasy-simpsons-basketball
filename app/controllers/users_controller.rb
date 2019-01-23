@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   require "rack-flash"
-  before_action :find_user, only: [:show, :update]
+  before_action :find_user, only: %i[show edit update]
 
 
   def index
@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
-    render layout: '_login'
+    render layout: "_login"
   end
 
   def show
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       flash.now[:errors] = @user.errors.full_messages
-      render 'new'
+      render "new"
     end
   end
 
@@ -38,7 +38,7 @@ class UsersController < ApplicationController
       redirect_to user_path
     else
       flash[:errors] = @user.errors.full_messages
-      render 'edit'
+      render "edit"
     end
   end
 
@@ -51,5 +51,4 @@ class UsersController < ApplicationController
   def find_user
     @user = User.find(params[:id])
   end
-
 end
