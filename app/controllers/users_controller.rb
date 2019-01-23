@@ -1,11 +1,7 @@
 class UsersController < ApplicationController
   require "rack-flash"
-<<<<<<< HEAD
-  before_action :find_user, only: [:show, :update]
-=======
   before_action :find_user, only: %i[show edit update]
 
->>>>>>> 6d652daa75cacdcdb0ed702283e5eab9a7970977
 
   def index
   end
