@@ -2,6 +2,8 @@ class Match < ApplicationRecord
   belongs_to :team
 
   @@totalscore = {}
+  @@homescore = {}
+  @@awayscore = {}
 
   def mvp
     TeamPlayer.find(self.man_of_match).name
@@ -12,16 +14,24 @@ class Match < ApplicationRecord
   end
 
   def match
-    home_baskets
-    away_baskets
+    @@homescore = home_baskets
+    @@awayscore = away_baskets
     @@totalscore
+  end
+
+  def homescore
+    @@homescore
+  end
+
+  def awayscore
+    @@awayscore
   end
 
   def home_baskets
     teammod = self.team.teammodifier
     team_baskets = {}
     self.team.team_players.each do |player|
-      baskets = (player.modifier * teammod).to_i     
+      baskets = (player.modifier * teammod).to_i
       player.totalbaskets += baskets
       team_baskets[player.name] = baskets
     end
