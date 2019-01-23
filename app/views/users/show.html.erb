@@ -1,9 +1,15 @@
 <% if flash[:success] %>
-  <%= flash[:success] %>
+  <div class="alert alert-success" role="alert">
+    <%= flash[:success] %>
+  </div>
 <% elsif flash[:valid] %>
-  <%= flash[:valid] %>
+  <div class="alert alert-primary" role="alert">
+    <%= flash[:valid] %>
+  </div>
 <% elsif flash[:update] %>
-  <%= flash[:update] %>
+  <div class="alert alert-primary" role="alert">
+   <%= flash[:update] %>
+  </div>
 <% end %>
 
 <% provide(:title, @user.first_name) %>

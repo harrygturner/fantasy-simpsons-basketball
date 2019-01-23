@@ -23,8 +23,8 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      flash.now[:errors] = @user.errors.full_messages
-      render "new"
+      flash[:errors] = @user.errors.full_messages
+      redirect_to signup_path
     end
   end
 

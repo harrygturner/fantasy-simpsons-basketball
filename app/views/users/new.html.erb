@@ -1,11 +1,11 @@
 <h3>Create a User Profile:</h3>
 
 <% if flash[:errors] %>
-  <ul>
+  <div>
     <% flash[:errors].each do |error| %>
-      <li class= "flash-error"> <%= error %> </li>
+      <p class="alert alert-warning" role="alert"> <%= error %> </p>
     <% end %>
-  </ul>
+  </div>
 <% end %>
 
 <%= form_for(@user) do |f| %>
