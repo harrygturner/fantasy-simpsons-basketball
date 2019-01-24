@@ -1,12 +1,15 @@
+<div style="background-color: white; text-align:center; padding:10px">
 <% @teams.each do |team| %>
-    <p>Team Name: <%= team.name %>| Owner: <%= team.user.name %> 
-    <% if team.user != @user %>
+<% if team.user != @user %>
+    <p>Team Name: <%= team.name %> | Owner: <%= team.user.name %> 
+    
       <%= form_tag("/game", method: :post) do%>
       <%= hidden_field_tag :away_team, team.id %>
-        <%= submit_tag "Setup Game!" %>
+        <%= submit_tag "Setup Game!", class:"btn btn-outline-info" %>
       <%end%>
     <% end %>
   
   
   </p>
 <% end %>
+</div>

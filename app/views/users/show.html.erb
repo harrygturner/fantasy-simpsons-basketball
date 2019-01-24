@@ -13,7 +13,7 @@
 <% end %>
 
 <% provide(:title, @user.first_name) %>
-
+<div style="background-color:white; text-align: center">
 <h3>
   <%= @user.name %>
 </h3>
@@ -23,6 +23,7 @@
   <p>Team Name: <%= @team.name %></p>
   <p>Current Budget: £<%= @user.current_budget %></p>
   <p>Players:</p>
+  </div>
 <div class="card-columns">
   <% @team.team_players.each do |team_player|%>
     <div class="card bg-info mb-3">
