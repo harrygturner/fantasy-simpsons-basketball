@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/", to: "sessions#new", as: "root"
   post "/game", to: "matches#create"
   get "/play", to: "matches#show"
+  post "/play", to: "matches#playgame"
   resources :matches
   resources :users
   resources :teams

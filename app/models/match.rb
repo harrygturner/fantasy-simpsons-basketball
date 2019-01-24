@@ -81,7 +81,6 @@ class Match < ApplicationRecord
   def highest_scorer
     m1 = @@totalscore[:home].max_by { |k, v| v }
     m2 = @@totalscore[:away].max_by { |k, v| v }
-    byebug
     if m1[1] > m2[1]
       playerid = Player.find_by(name: m1[0]).id
       self.man_of_match = TeamPlayer.find_by(player_id: playerid).id
