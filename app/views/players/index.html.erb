@@ -6,8 +6,8 @@
  <div class="card text-center bg-warning mb-3">
   <h3 class="card-title"><%= player.name%></h5>
   <h6 class="card-subtitle mb-2 lead">"<%=player.catchphrase%>"</h6>
- <p class="card-text">Height: <%= player.height%></p>
- <p class="card-text">Rating: <%= player.baserating%></p>
+ <p class="card-text"><span class="teamdisplay">Height</span>: <%= player.height%></p>
+ <p class="card-text"><span class="teamdisplay">Rating</span>: <%= player.baserating%></p>
 <% if @team == nil %>
 <%= link_to 'View Player', player_path(player), class: 'btn btn-info' %>
 <% else @team.players.count < 5  %>
