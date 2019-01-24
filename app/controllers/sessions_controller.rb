@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
   layout "_login"
 
   def new
-    byebug
   end
 
   def create
