@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   require "rack-flash"
   before_action :find_user, only: %i[show edit update]
-  before_action :require_login, only: %i[show update edit create]
+  before_action :require_login, only: %i[show update edit]
 
   def new
     @user = User.new
