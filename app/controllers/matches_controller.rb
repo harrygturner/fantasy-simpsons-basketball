@@ -2,6 +2,7 @@ class MatchesController < ApplicationController
   before_action :require_login, :find_user
   #before_action :show, :find_match
   @@game_played = nil
+  @@game_location = nil
 
   def playgame
     @game = Match.find(params[:match_id])
@@ -17,6 +18,8 @@ class MatchesController < ApplicationController
     find_match
     @hometeam = @match.team.team_players
     @awayteam = @match.away_team.team_players
+    @location = @@game_location
+
     if params[:played] == "1"
       @played = "true"
     else
@@ -28,7 +31,8 @@ class MatchesController < ApplicationController
     @hometeam = @user.team
     @awayteam = Team.find(params[:away_team])
     @match = Match.create(team_id: @hometeam.id, team_id_2: params[:away_team])
-    @@game_played =  params[:game_played]
+    @@game_played = params[:game_played]
+    @@game_location = Faker::Simpsons.location
     redirect_to match_path(@match)
   end
 

@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
   require "rack-flash"
   before_action :find_user, only: %i[show edit update]
-
-
-  def index
-  end
+  before_action :require_login, only: %i[show update edit create]
 
   def new
     @user = User.new
@@ -12,6 +9,7 @@ class UsersController < ApplicationController
   end
 
   def show
+    authorized_for(params[:id])
     @team = @user.team
   end
 
@@ -29,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    authorized_for(params[:id])
   end
 
   def update

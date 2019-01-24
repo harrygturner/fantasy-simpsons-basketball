@@ -9,6 +9,7 @@ class TeamsController < ApplicationController
   end
 
   def new
+    authorized_for(params[:id])
     @team = Team.new
     @players = Player.all
   end
@@ -22,6 +23,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    authorized_for(params[:id])
     @players = @team.players
   end
 
