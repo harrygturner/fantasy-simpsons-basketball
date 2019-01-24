@@ -1,27 +1,27 @@
 <% if flash[:success] %>
-  <div class="alert alert-success" role="alert">
-    <%= flash[:success] %>
-  </div>
+  <h3 class="text-warning" style="text-align:center; margin-bottom: 40px;">
+    Welcome to the Simpson's Fantasy Basketball League!!
+  </h3>
 <% elsif flash[:valid] %>
   <div class="alert alert-primary" role="alert">
-    <%= flash[:valid] %>
+   <%= flash[:valid] %>
   </div>
 <% elsif flash[:update] %>
-  <div class="alert alert-primary" role="alert">
+  <div class="alert alert-warning" role="alert">
    <%= flash[:update] %>
   </div>
 <% end %>
 
 <% provide(:title, @user.first_name) %>
-<div class="mx-auto" style="text-align: center; width:50%">
-<h3 class="text-warning">
+<div class="mx-auto" style="text-align: center; width:80%">
+<h3 class="text-warning" style="margin-bottom: 20px">
   <%= @user.name %>
 </h3>
 
 
 <% if @team != nil %>
   <p class="text-warning"><span class="teamdisplay">Team Name</span>: <%= @team.name %></p>
-  <p class="text-warning"><span class="teamdisplay">Current Budget</span>: £<%= @user.current_budget %></p>
+  <p class="text-warning"><span class="teamdisplay">Current Budget</span><span class="alt-text">:</span> £<%= @user.current_budget %></p>
   </div>
 <div class="card-columns">
   <% @team.team_players.each do |team_player|%>
@@ -41,6 +41,6 @@
     <%= link_to "Add more players", selectplayers_path %>
   <% end %>
 <% else %>
-  <h5>Current budget: £<%= @user.budget %></h5>
+  <h5 style="margin-bottom:40px; margin-top: 40px;">You currently have a budget of <span class="alt-text">£</span><%= @user.budget %>, so what are you waiting for! Create your team and buy some players. You can't win the league all by yourself.</h5>
   <%= link_to 'Create your team!', new_team_path, class:"btn btn-warning"%>
 <%end%>
