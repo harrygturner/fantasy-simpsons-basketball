@@ -9,8 +9,6 @@ class MatchesController < ApplicationController
     game.highest_scorer
     game.save
     @@game_played = params[:game_played]
-    # @hometeam = @match.team.team_players
-    # @awayteam = @match.away_team.team_players
     redirect_to match_path(game)
   end
 

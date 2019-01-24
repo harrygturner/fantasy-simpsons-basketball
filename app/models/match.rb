@@ -7,7 +7,11 @@ class Match < ApplicationRecord
   @@score = {}
 
   def mvp
-    TeamPlayer.find(self.man_of_match).name
+    TeamPlayer.find(self.man_of_match)
+  end
+
+  def mvp_name
+    self.mvp.name
   end
 
   def away_team
