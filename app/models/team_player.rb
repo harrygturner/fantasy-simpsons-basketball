@@ -36,7 +36,6 @@ class TeamPlayer < ApplicationRecord
     modifier
   end
 
-
   private
 
   def default_values

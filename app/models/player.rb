@@ -5,4 +5,5 @@ class Player < ApplicationRecord
   def value
     self.baserating/3
   end
+
 end
