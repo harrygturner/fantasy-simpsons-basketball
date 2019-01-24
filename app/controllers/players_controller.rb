@@ -4,6 +4,10 @@ class PlayersController < ApplicationController
   before_action :find_user
 
   def selectplayers
+    if params[:team_create]
+      team = Team.create(name: params[:name], user_id: session[:user_id])
+    end
+    
     @team = @user.team
     @players = Player.all
 
@@ -18,8 +22,8 @@ class PlayersController < ApplicationController
   end
 
   def show
-
   end
+
   def index
     @players = Player.all
   end
