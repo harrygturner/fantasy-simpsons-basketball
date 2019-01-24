@@ -93,7 +93,7 @@
     <div class="row">
         <div class="col-sm">
           <%@hometeam.each do |player|%>
-            <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+            <% if player == @match.mvp && player.team == @match.mvp.team %>
               <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
             <% else %>
               <h6 style="text-align: center;"><%=player.name%></h6>
@@ -102,7 +102,7 @@
         </div>
       <div class="col-1">
         <%@hometeam.each do |player|%>
-          <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+          <% if player == @match.mvp && player.team == @match.mvp.team %>
             <h6 style="text-align: left; color: #FFD700;"><%=player.matchbaskets%></h6>
           <% else %>
             <h6 style="text-align: left;"><%=player.matchbaskets%></h6>
@@ -111,7 +111,7 @@
       </div>
       <div class="col-1">
         <%@awayteam.each do |player|%>
-          <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+          <% if player == @match.mvp && player.team == @match.mvp.team %>
             <h6 style="text-align: right; color: #FFD700;"><%=player.matchbaskets%></h6>
           <% else %>
             <h6 style="text-align: right;"><%=player.matchbaskets%></h6>
@@ -120,7 +120,7 @@
       </div>
       <div class="col-sm">
         <%@awayteam.each do |player|%>
-        <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+        <% if player == @match.mvp && player.team == @match.mvp.team %>
           <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
           <% else %>
           <h6 style="text-align: center;"><%=player.name%></h6>

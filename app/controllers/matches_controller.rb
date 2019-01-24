@@ -4,12 +4,13 @@ class MatchesController < ApplicationController
   @@game_played = nil
 
   def playgame
-    game = Match.find(params[:match_id])
-    game.score
-    game.highest_scorer
-    game.save
+    @game = Match.find(params[:match_id])
+    @game.score
+    @game.highest_scorer
+    @game.save
     @@game_played = params[:game_played]
-    redirect_to match_path(game)
+    # redirect_to match_path(@game)
+    render 'sim'
   end
 
   def show
