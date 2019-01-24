@@ -22,9 +22,10 @@ class MatchesController < ApplicationController
   end
 
   def create
+    byebug
     @hometeam = @user.team
     @awayteam = Team.find(params[:away_team])
-    @match = Match.create(team_id: @hometeam.id, team_id_2: @awayteam.id)
+    @match = Match.create(team_id: @hometeam.id, team_id_2: params[:away_team])
     redirect_to match_path(@match)
   end
 
