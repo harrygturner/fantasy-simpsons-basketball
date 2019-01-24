@@ -1,7 +1,7 @@
 
 <h1 class="match_head">Match Number <%=@match.id%></h1>
 
-<% if @played == nil %>
+<% if @played == "false" %>
 <div class="container" style="margin-bottom: 20px;">
   <div class="row">
     <div class="col-sm">
@@ -18,14 +18,25 @@
 
 <div class="container">
   <div class="row">
-      <div class="col-sm">
+    <div class="col-sm">
+      <h5 class="match_head">Players</h5>
+    </div>
+    <div class="col-2">
+      <h5 class="match_head">Ratings</h5>
+    </div>
+    <div class="col-sm">
+      <h5 class="match_head">Players</h5>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm" style="text-align: center;">
         <%@hometeam.each do |player|%>
-          <h6 style="text-align: center;"><%=player.name%></h6>
+          <h6><%=player.name%></h6>
         <%end%>
       </div>
-    <div class="col-1">
+    <div class="col-1" style="text-align: left;">
       <%@hometeam.each do |player|%>
-        <h6 style="text-align: left;"><%=player.rating%></h6>
+        <h6><%=player.rating%></h6>
       <%end%>
     </div>
     <div class="col-1">
@@ -44,7 +55,7 @@
   <%= form_tag("/play", method: :post)%>
   <%= hidden_field_tag :match_id, @match.id %>
   <%= hidden_field_tag :game_played, true %>
-  <%= submit_tag "Play Game!", class:"btn btn-outline-info"%>
+  <%= submit_tag "Play Game!", class:"btn btn-outline-warning"%>
 </div>
 
 <% elsif @played == "true" %>
@@ -69,10 +80,21 @@
 
   <div class="container" style="margin-bottom: 30px;">
     <div class="row">
+      <div class="col-sm">
+        <h5 class="match_head">Players</h5>
+      </div>
+      <div class="col-2">
+        <h5 class="match_head">Baskets</h5>
+      </div>
+      <div class="col-sm">
+        <h5 class="match_head">Players</h5>
+      </div>
+    </div>
+    <div class="row">
         <div class="col-sm">
           <%@hometeam.each do |player|%>
             <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
-              <h6 style="text-align: center; color: #FFD90F;"><%=player.name%> (MVP)</h6>
+              <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
             <% else %>
               <h6 style="text-align: center;"><%=player.name%></h6>
             <% end %>
@@ -81,7 +103,7 @@
       <div class="col-1">
         <%@hometeam.each do |player|%>
           <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
-            <h6 style="text-align: left; color: #FFD90F;"><%=player.matchbaskets%></h6>
+            <h6 style="text-align: left; color: #FFD700;"><%=player.matchbaskets%></h6>
           <% else %>
             <h6 style="text-align: left;"><%=player.matchbaskets%></h6>
           <% end %>
@@ -90,7 +112,7 @@
       <div class="col-1">
         <%@awayteam.each do |player|%>
           <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
-            <h6 style="text-align: right; color: #FFD90F;"><%=player.matchbaskets%></h6>
+            <h6 style="text-align: right; color: #FFD700;"><%=player.matchbaskets%></h6>
           <% else %>
             <h6 style="text-align: right;"><%=player.matchbaskets%></h6>
           <% end %>
@@ -99,14 +121,16 @@
       <div class="col-sm">
         <%@awayteam.each do |player|%>
         <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
-          <h6 style="text-align: center; color: #FFD90F;"><%=player.name%></h6>
+          <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
           <% else %>
           <h6 style="text-align: center;"><%=player.name%></h6>
           <% end %>
         <%end%>
       </div>
-      <% end %>
     </div>
   </div>
 
-  <h4 class="match_head">MVP <%=@match.mvp_name%></h4>
+  <h5 style="text-align: center;">MVP: <%= @match.mvp_name %></h5>
+
+
+<% end %>
