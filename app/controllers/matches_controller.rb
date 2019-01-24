@@ -1,18 +1,24 @@
 class MatchesController < ApplicationController
   before_action :require_login, :find_user
   #before_action :show, :find_match
+  @@game_played = nil
 
   def playgame
-    @match = Match.find(params[:match_id])
-    @hometeam = @match.team.team_players
-    @awayteam = @match.away_team.team_players
+    game = Match.find(params[:match_id])
+    game.score
+    game.highest_scorer
+    game.save
+    @@game_played = params[:game_played]
+    # @hometeam = @match.team.team_players
+    # @awayteam = @match.away_team.team_players
+    redirect_to match_path(game)
   end
 
   def show
-    # byebug
     find_match
-    @hometeam = @match.team
-    @awayteam = @match.away_team 
+    @hometeam = @match.team.team_players
+    @awayteam = @match.away_team.team_players
+    @played = @@game_played
   end
 
   def create
@@ -20,7 +26,6 @@ class MatchesController < ApplicationController
     @awayteam = Team.find(params[:away_team])
     @match = Match.create(team_id: @hometeam.id, team_id_2: @awayteam.id)
     redirect_to match_path(@match)
-    # byebug
   end
 
   private
