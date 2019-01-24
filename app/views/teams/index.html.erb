@@ -1,12 +1,18 @@
+<div class="mx-auto text-warning" style="background-color: rgba(255,255,255, 0.3);text-align:center; padding:10px; width:50%">
 <% @teams.each do |team| %>
-    <p>Team Name: <%= team.name %>| Owner: <%= team.user.name %> 
+
+    <p>Team Name: <%= team.name %>| Owner: <%= team.user.name %>
     <% if team.user != @user %>
-      <%= form_tag("/game", method: :post)%>
+      <%= form_tag("/game", method: :post) do%>
       <%= hidden_field_tag :away_team, team.id %>
-        <%= submit_tag "Setup Game!" %>
-      
+      <%= hidden_field_tag :game_played, false %>
+        <%= submit_tag "Setup Game!", class:"btn btn-outline-warning" %>
+      <%end%>
     <% end %>
-  
-  
+
+
   </p>
 <% end %>
+
+</div>
+

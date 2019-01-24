@@ -1,28 +1,136 @@
-<h1>Match Number <%=@match.id%></h1>
-<h4>Home Team: <%=@match.team.name%></h4>
-<h4>Away Team: <%=@match.away_team.name%></h4>
 
-<% if @played == nil %>
-  <%@hometeam.each do |player|%>
-  <%=player.name%><%=player.rating%>
-  <%end%>
-  <%@awayteam.each do |player|%>
-  <%=player.name%><%=player.rating%>
-  <%end%>
+<h1 class="match_head">Match Number <%=@match.id%></h1>
 
+<% if @played == "false" %>
+<div class="container" style="margin-bottom: 20px;">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="match_head"><%=@match.team.name%></h3>
+    </div>
+    <div class="col-2">
+      <h4 class="match_head">Vs.</h4>
+    </div>
+    <div class="col-sm">
+      <h3 class="match_head"><%=@match.away_team.name%></h3>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h5 class="match_head">Players</h5>
+    </div>
+    <div class="col-2">
+      <h5 class="match_head">Ratings</h5>
+    </div>
+    <div class="col-sm">
+      <h5 class="match_head">Players</h5>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-sm" style="text-align: center;">
+        <%@hometeam.each do |player|%>
+          <h6><%=player.name%></h6>
+        <%end%>
+      </div>
+    <div class="col-1" style="text-align: left;">
+      <%@hometeam.each do |player|%>
+        <h6><%=player.rating%></h6>
+      <%end%>
+    </div>
+    <div class="col-1">
+      <%@awayteam.each do |player|%>
+        <h6 style="text-align: right;"><%=player.rating%></h6>
+      <%end%>
+    </div>
+    <div class="col-sm">
+      <%@awayteam.each do |player|%>
+        <h6 style="text-align: center;"><%=player.name%></h6>
+      <%end%>
+    </div>
+  </div>
+</div>
+<div style="text-align: center; padding-top: 30px;">
   <%= form_tag("/play", method: :post)%>
-      <%= hidden_field_tag :match_id, @match.id %>
-      <%= hidden_field_tag :game_played, true %>
-  <%= submit_tag "Play Game!" %>
+  <%= hidden_field_tag :match_id, @match.id %>
+  <%= hidden_field_tag :game_played, true %>
+  <%= submit_tag "Play Game!", class:"btn btn-outline-warning"%>
+</div>
 
 <% elsif @played == "true" %>
-  <h4>MVP: <%=@match.mvp%></h4>
-  <h4>Home Score: <%=@match.baskets_team_1%></h4>
-  <h4>Away Score: <%=@match.baskets_team_2%></h4>
-  <%@hometeam.each do |player|%>
-  <%=player.name%><%=player.matchbaskets%>
-  <%end%>
-  <%@awayteam.each do |player|%>
-  <%=player.name%><%=player.matchbaskets%>
-  <%end%>
+<div class="container" style="margin-bottom: 20px;">
+  <div class="row">
+    <div class="col-sm">
+      <h3 class="match_head"><%=@match.team.name%></h3>
+    </div>
+    <div class="col-1">
+      <h3 class="match_head"><%=@match.baskets_team_1%></h3>
+    </div>
+    <div class="col-1">
+      <h4 class="match_head">Vs.</h4>
+    </div>
+    <div class="col-1">
+      <h3 class="match_head"><%=@match.baskets_team_2%></h3>
+    </div>
+    <div class="col-sm">
+      <h3 class="match_head"><%=@match.away_team.name%></h3>
+    </div>
+  </div>
+
+  <div class="container" style="margin-bottom: 30px;">
+    <div class="row">
+      <div class="col-sm">
+        <h5 class="match_head">Players</h5>
+      </div>
+      <div class="col-2">
+        <h5 class="match_head">Baskets</h5>
+      </div>
+      <div class="col-sm">
+        <h5 class="match_head">Players</h5>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm">
+          <%@hometeam.each do |player|%>
+            <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+              <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
+            <% else %>
+              <h6 style="text-align: center;"><%=player.name%></h6>
+            <% end %>
+          <%end%>
+        </div>
+      <div class="col-1">
+        <%@hometeam.each do |player|%>
+          <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+            <h6 style="text-align: left; color: #FFD700;"><%=player.matchbaskets%></h6>
+          <% else %>
+            <h6 style="text-align: left;"><%=player.matchbaskets%></h6>
+          <% end %>
+        <%end%>
+      </div>
+      <div class="col-1">
+        <%@awayteam.each do |player|%>
+          <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+            <h6 style="text-align: right; color: #FFD700;"><%=player.matchbaskets%></h6>
+          <% else %>
+            <h6 style="text-align: right;"><%=player.matchbaskets%></h6>
+          <% end %>
+        <%end%>
+      </div>
+      <div class="col-sm">
+        <%@awayteam.each do |player|%>
+        <% if player.name == @match.mvp_name && player.team == @match.mvp.team %>
+          <h6 style="text-align: center; color: #FFD700;"><%=player.name%></h6>
+          <% else %>
+          <h6 style="text-align: center;"><%=player.name%></h6>
+          <% end %>
+        <%end%>
+      </div>
+    </div>
+  </div>
+
+  <h5 style="text-align: center;">MVP: <%= @match.mvp_name %></h5>
+
+
 <% end %>

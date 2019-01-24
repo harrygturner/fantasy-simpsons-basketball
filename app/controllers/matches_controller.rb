@@ -9,8 +9,6 @@ class MatchesController < ApplicationController
     game.highest_scorer
     game.save
     @@game_played = params[:game_played]
-    # @hometeam = @match.team.team_players
-    # @awayteam = @match.away_team.team_players
     redirect_to match_path(game)
   end
 
@@ -24,7 +22,8 @@ class MatchesController < ApplicationController
   def create
     @hometeam = @user.team
     @awayteam = Team.find(params[:away_team])
-    @match = Match.create(team_id: @hometeam.id, team_id_2: @awayteam.id)
+    @match = Match.create(team_id: @hometeam.id, team_id_2: params[:away_team])
+    @@game_played =  params[:game_played]
     redirect_to match_path(@match)
   end
 

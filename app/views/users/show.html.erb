@@ -13,22 +13,22 @@
 <% end %>
 
 <% provide(:title, @user.first_name) %>
-
-<h3>
+<div class="mx-auto" style="text-align: center; width:50%">
+<h3 class="text-warning">
   <%= @user.name %>
 </h3>
 
 
 <% if @team != nil %>
-  <p>Team Name: <%= @team.name %></p>
-  <p>Current Budget: £<%= @user.current_budget %></p>
-  <p>Players:</p>
+  <p class="text-warning"><span class="teamdisplay">Team Name</span>: <%= @team.name %></p>
+  <p class="text-warning"><span class="teamdisplay">Current Budget</span>: £<%= @user.current_budget %></p>
+  </div>
 <div class="card-columns">
   <% @team.team_players.each do |team_player|%>
     <div class="card bg-info mb-3">
       <%= image_tag team_player.player.image, class: "card-img-top" %>
       <div class="card text-center bg-warning mb-3">
-        <h5 class="card-title"><%= team_player.player.name%></h5>
+        <h3 class="card-title"><%= team_player.player.name%></h3>
         <h6 class="card-subtitle mb-2 lead">"<%=team_player.player.catchphrase%>"</h6>
         <p class="card-text">Height: <%= team_player.player.height%></p>
         <p class="card-text">Rating: <%= team_player.rating%></p>
