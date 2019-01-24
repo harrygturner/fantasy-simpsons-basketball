@@ -36,6 +36,25 @@ class TeamPlayer < ApplicationRecord
     modifier
   end
 
+  def total_games
+    self.team.matches.count
+  end
+
+  def average_score
+    average = 0
+    total_baskets = self.totalbaskets
+    average = total_baskets/total_games
+  end
+
+  def experience
+    rating = self.rating
+    if rating >= 80
+    elsif rating >= 60 && rating < 80
+    elsif rating >= 40 && rating < 60
+    else
+    end
+  end
+
   private
 
   def default_values
