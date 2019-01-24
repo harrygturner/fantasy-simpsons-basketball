@@ -1,3 +1,4 @@
+<div class="mx-auto text-center">
 <h3>Log in</h3>
 
 <% if flash[:invalid] %>
@@ -5,14 +6,15 @@
     <%= flash[:invalid] %>
   </div>
 <% end %>
-
-<%= form_for(:session, url: login_path) do |f| %>
+<div class="form-login text-center mx-auto" style="width:30%;">
+<%= form_for(:session, url: login_path) do |f|%>
   <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <%= f.text_field :username, class:"form-control input-sm chat-input" %><br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, class:"form-control input-sm chat-input"%>
 
-  <%= f.submit "Log in" %>
+  <%= f.submit "Log in", class: "btn btn-warning", style:"margin-top:10px" %>
 <% end %>
-
+</div>
 <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+</div>

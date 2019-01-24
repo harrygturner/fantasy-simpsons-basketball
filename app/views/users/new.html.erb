@@ -1,3 +1,4 @@
+<div class="mx-auto text-center">
 <h3>Create a User Profile:</h3>
 
 <% if flash[:errors] %>
@@ -7,14 +8,16 @@
     <% end %>
   </div>
 <% end %>
-
+<div class="form-login text-center mx-auto" style="width:30%;">
 <%= form_for(@user) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %> <br>
+  <%= f.text_field :name, class:"form-control input-sm chat-input"  %> <br>
   <%= f.label :username %>
-  <%= f.text_field :username %><br>
+  <%= f.text_field :username, class:"form-control input-sm chat-input"  %><br>
   <%= f.label :password %>
-  <%= f.password_field :password %><br>
+  <%= f.password_field :password, class:"form-control input-sm chat-input"  %><br>
 
-  <%= f.submit "Create my account" %>
+  <%= f.submit "Create my account", class: "btn btn-warning", style:"margin-top:10px" %>
 <% end %>
+</div>
+</div>
