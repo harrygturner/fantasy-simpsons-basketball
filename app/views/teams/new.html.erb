@@ -5,6 +5,7 @@
 <%=form_tag '/selectplayers', method:'get' do %>
 <h2><%= label_tag :name, "Team Name"%></h2>
 <%= text_field_tag :name, nil, class:"form-control input-sm chat-input" %>
+<%= hidden_field_tag :team_create, true %>
 <%= submit_tag ("Create your Team"), class: "btn btn-warning", style:"margin-top:10px;"%>
 <%end%>
 </div>
