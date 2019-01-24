@@ -18,7 +18,7 @@
 <% if @team.players.count < 5  %>
   <%= form_tag("/addplayer", method: "post") do %>
     <%= hidden_field_tag :player_id, player.id %>
-    <%= submit_tag "Add Player" %>
+    <%= submit_tag "Add Player", class:"btn btn-info" %>
   <% end %>
 <% end %>
 </div>
