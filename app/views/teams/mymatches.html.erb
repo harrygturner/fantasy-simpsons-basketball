@@ -1,0 +1,14 @@
+
+<div class="row mx-auto">
+    <% @matches.each do |match| %>
+        <div class="card-body">
+        <h2 class="card-title"><%= match.team.name %> Vs. <%= match.away_team.name %></h2>
+        <h5 class="card-text"><%= match.baskets_team_1 %> - <%= match.baskets_team_2 %></h5>
+        <%= form_tag(match_path(match), method: :get) do%>
+            <%= hidden_field_tag :played, '1' %>
+            <%= submit_tag "See Stats", class:"btn btn-outline-warning"%>
+        <%end%>
+        </div>
+
+    <% end %>
+</div>
