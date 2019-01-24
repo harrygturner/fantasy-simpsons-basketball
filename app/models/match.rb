@@ -43,6 +43,7 @@ class Match < ApplicationRecord
       baskets = (player.modifier * teammod).to_i
       player.matchbaskets = baskets
       player.totalbaskets += baskets
+      player.rating += (baskets / 3)
       team_baskets[player.name] = baskets
       player.save
     end
@@ -57,6 +58,7 @@ class Match < ApplicationRecord
       baskets = (player.modifier * teammod).to_i
       player.matchbaskets = baskets
       player.totalbaskets += baskets
+      player.rating += (baskets / 3)
       team_baskets[player.name] = baskets
       player.save
     end
