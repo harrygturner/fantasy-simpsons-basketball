@@ -1,4 +1,4 @@
-<h3>Update your Profile</h3>
+
 
 <% if flash[:errors] %>
 <ul>
@@ -8,15 +8,17 @@
 </ul>
 <% end %>
 
+<h3 class="text-center mx-auto" style="width:50%">Update your Profile</h3>
+<div class="form-login text-center mx-auto" style="width:30%;">
 <%= form_for(@user) do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %> <br>
-  <%= f.label :username %>
-  <%= f.text_field :username %><br>
-  <%= f.label :password %>
-  <%= f.password_field :password %><br>
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %><br>
+  <%= f.label :name, class:"teamdisplay" %>
+  <%= f.text_field :name, class:"form-control input-sm chat-input", style:"margin-bottom:5px" %>
+  <%= f.label :username, class:"teamdisplay"  %>
+  <%= f.text_field :username, class:"form-control input-sm chat-input", style:"margin-bottom:5px"%>
+  <%= f.label :password, class:"teamdisplay"  %>
+  <%= f.password_field :password, class:"form-control input-sm chat-input", style:"margin-bottom:5px"%>
+  <%= f.label :password_confirmation, class:"teamdisplay"  %>
+  <%= f.password_field :password_confirmation, class:"form-control input-sm chat-input", style:"margin-bottom:5px"%>
 
-  <%= f.submit "Save changes" %>
+  <%= f.submit "Save changes", class: "btn btn-warning", style:"margin-top:10px", style:"margin-bottom:5px"%>
 <% end %>
