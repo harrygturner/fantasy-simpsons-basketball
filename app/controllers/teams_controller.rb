@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :find_user
-  before_action :find_team, only: %i[edit show]
+  before_action :find_team, only: %i[edit show mymatches]
   before_action :require_login
 
 
@@ -23,6 +23,10 @@ class TeamsController < ApplicationController
 
   def edit
     @players = @team.players
+  end
+
+  def mymatches
+    @matches = @user.team.matches
   end
 
   private

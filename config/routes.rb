@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   post "/game", to: "matches#create"
   get "/play", to: "matches#show"
   post "/play", to: "matches#playgame"
+  get '/mymatches', to: 'teams#mymatches', as: 'my_match'
   resources :matches
   resources :users
   resources :teams
