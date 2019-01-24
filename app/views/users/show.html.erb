@@ -42,5 +42,5 @@
   <% end %>
 <% else %>
   <h5>Current budget: £<%= @user.budget %></h5>
-  <%= link_to 'Create your team!', new_team_path %>
+  <%= link_to 'Create your team!', new_team_path, class="btn btn-warning"%>
 <%end%>
