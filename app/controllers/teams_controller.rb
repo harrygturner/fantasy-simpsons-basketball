@@ -3,7 +3,6 @@ class TeamsController < ApplicationController
   before_action :find_team, only: %i[edit show mymatches]
   before_action :require_login
 
-
   def index
     @teams = Team.all
   end
@@ -19,6 +18,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    byebug
   end
 
   def edit

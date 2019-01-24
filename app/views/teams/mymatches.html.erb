@@ -1,9 +1,9 @@
 
-<div class="row mx-auto">
+<div class="text-center">
     <% @matches.each do |match| %>
-        <div class="card-body">
-        <h2 class="card-title"><%= match.team.name %> Vs. <%= match.away_team.name %></h2>
-        <h5 class="card-text"><%= match.baskets_team_1 %> - <%= match.baskets_team_2 %></h5>
+        <div class="card-body flblock">
+        <h2 class="card-title"><%= match.team.name %> <h5 class="card-text"><%= match.baskets_team_1 %></h5> <h3 class="card-title">Vs.</h3> <h5 class="card-text"><%= match.baskets_team_2 %></h5> <h2 class="card-title"><%= match.away_team.name %></h2></h2>
+        <h5 class="card-text"></h5>
         <%= form_tag(match_path(match), method: :get) do%>
             <%= hidden_field_tag :played, '1' %>
             <%= submit_tag "See Stats", class:"btn btn-outline-warning"%>

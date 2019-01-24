@@ -1,4 +1,4 @@
-<h2 class="text-center">All Players</h2>
+<h2 class="text-center">Select Your Players</h2>
 <% if flash[:error] %>
   <h4 class="text-center"><%= flash[:error] %></h4>
 <% end %>
@@ -9,16 +9,16 @@
   <div class="card bg-info mb-3">
   <%= image_tag player.image, class: "card-img-top" %>
   <div class="card text-center bg-warning mb-3">
-  <h5 class="card-title"><%= player.name%></h5>
+  <h3 class="card-title"><%= player.name%></h3>
   <h6 class="card-subtitle mb-2 lead">"<%=player.catchphrase%>"</h6>
- <p class="card-text">Height: <%= player.height%></p>
- <p class="card-text">Rating: <%= player.baserating%></p>
- <p class="card-text">Value: £<%= player.value%></p>
+ <p class="card-text"><span class="teamdisplay">Height</span>: <%= player.height%></p>
+ <p class="card-text"><span class="teamdisplay">Rating</span>: <%= player.baserating%></p>
+ <p class="card-text"><span class="teamdisplay">Value</span>: £<%= player.value%></p>
 
 <% if @team.players.count < 5  %>
   <%= form_tag("/addplayer", method: "post") do %>
     <%= hidden_field_tag :player_id, player.id %>
-    <%= submit_tag "Add Player" %>
+    <%= submit_tag "Add Player", class:"btn btn-info" %>
   <% end %>
 <% end %>
 </div>

@@ -1,10 +1,10 @@
-<%= form_for @team do |f| %>
 
-<%= f.label :name %>
-<%= f.text_field :name %>
+<h5>Congratulations! You've started your basketball journey! Now it's time to choose a name, and get playing!</h5>
+<div class="form-login text-center mx-auto" style="width:30%;">
 
-<%= f.hidden_field :user_id, value: session[:user_id] %>
-
-
-<%= f.submit %>
-<% end %>
+<%=form_tag '/selectplayers', method:'get' do %>
+<h2><%= label_tag :name, "Team Name"%></h2>
+<%= text_field_tag :name, nil, class:"form-control input-sm chat-input" %>
+<%= submit_tag ("Create your Team"), class: "btn btn-warning", style:"margin-top:10px;"%>
+<%end%>
+</div>
