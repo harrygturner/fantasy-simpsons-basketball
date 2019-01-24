@@ -17,7 +17,11 @@ class MatchesController < ApplicationController
     find_match
     @hometeam = @match.team.team_players
     @awayteam = @match.away_team.team_players
-    @played = @@game_played
+    if params[:played] == "1"
+      @played = "true"
+    else
+      @played = @@game_played
+    end
   end
 
   def create
