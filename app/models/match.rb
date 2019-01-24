@@ -81,6 +81,7 @@ class Match < ApplicationRecord
     self.baskets_team_1 = homescore
     self.baskets_team_2 = awayscore
     self.save
+    self.away_team_save
     @@score = {home: homescore, away: awayscore}
   end
 
@@ -96,5 +97,16 @@ class Match < ApplicationRecord
       self.man_of_match = TeamPlayer.find_by(player_id: playerid).id
       self.save
     end
+  end
+
+  def away_team_save
+    m2 = self.dup
+    baskets1 = m2.baskets_team_1
+    baskets2 = m2.baskets_team_2
+    t1 = m2.team_id
+    m2.team_id_2 = t1
+    m2.baskets_team_2 = baskets1
+    m2.baskets_team_1 = baskets2
+    self.away_team.matches << m2
   end
 end
