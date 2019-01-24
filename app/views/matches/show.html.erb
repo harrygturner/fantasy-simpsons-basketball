@@ -60,7 +60,7 @@
   <%= form_tag("/play", method: :post)%>
   <%= hidden_field_tag :match_id, @match.id %>
   <%= hidden_field_tag :game_played, true %>
-  <%= submit_tag "Play Game!", class:"btn btn-outline-warning"%>
+  <%= submit_tag "Play Game!", class:"btn btn-warning"%>
 </div>
 
 <% elsif @played == "true" %>

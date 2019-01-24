@@ -1,8 +1,8 @@
-<div class="mx-auto text-warning" style="background-color: rgba(255,255,255, 0.7);text-align:center; padding:10px; width:50%">
+<div class="mx-auto text-warning" style="background-color: rgba(255,255,255, 0.7);text-align:center; padding:10px; width:70%">
 <% @teams.each do |team| %>
 
     <% if team.user != @user %>
-    <p><span class="teamdisplay">Team Name</span>: <%= team.name %> | <span class="teamdisplay">Owner</span>: <%= team.user.name %>
+    <p style="font-size:1.5rem"><span class="teamdisplay">Team Name</span>: <%= team.name %> | <span class="teamdisplay">Owner</span>: <%= team.user.name %>
       <%= form_tag("/game", method: :post) do%>
       <%= hidden_field_tag :away_team, team.id %>
       <%= hidden_field_tag :game_played, false %>
