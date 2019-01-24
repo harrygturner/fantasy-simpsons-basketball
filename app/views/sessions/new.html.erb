@@ -1,9 +1,13 @@
 <div class="mx-auto text-center">
-<h3>Log in</h3>
+<h3 style="margin-bottom: 20px;">Log in</h3>
 
 <% if flash[:invalid] %>
   <div class="alert alert-warning" role="alert">
     <%= flash[:invalid] %>
+  </div>
+<% elsif flash[:authorized] %>
+  <div class="alert alert-danger" role="alert">
+    <%= flash[:authorized] %>
   </div>
 <% end %>
 <div class="form-login text-center mx-auto" style="width:30%;">

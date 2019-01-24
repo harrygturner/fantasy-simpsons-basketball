@@ -2,7 +2,7 @@
 <h1 class="match_head">Match Number <%=@match.id%></h1>
 
 <% if @played == "false" %>
-<div class="container" style="margin-bottom: 20px;">
+<div class="container" style="margin-bottom: 10px;">
   <div class="row">
     <div class="col-sm">
       <h3 class="match_head"><%=@match.team.name%></h3>
@@ -17,6 +17,11 @@
 </div>
 
 <div class="container">
+  <div class="row" style="margin-bottom: 40px;">
+    <div class="col" style="text-align: center;">
+      <h4>Location<span class="alt-text">:</span> <%= @location %></h4>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm">
       <h5 class="match_head">Players</h5>
