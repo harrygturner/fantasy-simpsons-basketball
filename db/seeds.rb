@@ -5,5 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+User.destroy_all
+TeamPlayer.destroy_all
+Team.destroy_all
+Player.destroy_all
+Match.destroy_all
+
 require_relative 'seedcontrol/csvseed.rb'
 Player.create(CsvSeed.csv_to_hash)

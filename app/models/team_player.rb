@@ -50,6 +50,10 @@ class TeamPlayer < ApplicationRecord
     matches.count
   end
 
+  def total_games
+    self.total_home_games + self.total_away_games
+  end
+
   def average_score
     average = 0
     total_games = total_home_games + total_away_games
@@ -60,7 +64,7 @@ class TeamPlayer < ApplicationRecord
   def experience
     rating = self.rating
     difference = self.matchbaskets - self.average_score
-    if rating >= 80
+    if rating >= 80 
       if difference > 0
         experience = difference/2
       else
