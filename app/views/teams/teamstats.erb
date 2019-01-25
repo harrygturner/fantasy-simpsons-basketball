@@ -1,0 +1,23 @@
+<div class ="mx-auto text-center" style="width:70%">
+<h2 style="margin-bottom:20px"><%=@team.name%><span style="font-family:Arial">'</span>s Stats!</h2>
+<dl class="row">
+<dt class="col sm-6"><h5>Total Matches Played</h5></dt>
+<dd class="col sm-3"></dd>
+<dd class="col sm-3 morespacing text-warning"><h6><%=@team.total_matches%></h6></dd>
+</dl>
+<dl class="row">
+<dt class="col sm-6"><h5>Highest Score</h5></dt>
+<dd class="col sm-3 morespacing"><h6>Against: <%=@team.highest_score.away_team.name%></h6></dd>
+<dd class="col sm-3 morespacing text-warning"><h6><%=@team.highest_score.baskets_team_1%></h6></dd>
+</dl>
+<dl class="row">
+<dt class="col sm-6"><h5>Highest Scorer</h5></dt>
+<dd class="col sm-3 morespacing"><h6><%=@team.most_baskets.name%></h6></dd>
+<dd class="col sm-3 morespacing text-warning"><h6><%=@team.most_baskets.totalbaskets%></h6></dd>
+</dl>
+<dl class="row">
+<dt class="col sm-6"><h5>Highest Average Score</h5></dt>
+<dd class="col sm-3 morespacing"><h6><%=@team.highest_average_score.name%></h6></dd>
+<dd class="col sm-3 morespacing text-warning"><h6><%=@team.highest_average_score.average_score%></h6></dd>
+</dl>
+</div>

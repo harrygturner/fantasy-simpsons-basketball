@@ -1,6 +1,6 @@
 class TeamsController < ApplicationController
   before_action :find_user
-  before_action :find_team, only: %i[edit show mymatches]
+  before_action :find_team, only: %i[edit show mymatches teamstats]
   before_action :require_login
 
   def index
@@ -18,7 +18,6 @@ class TeamsController < ApplicationController
   end
 
   def show
-    byebug
   end
 
   def edit
@@ -27,6 +26,11 @@ class TeamsController < ApplicationController
 
   def mymatches
     @matches = @user.team.matches
+  end
+
+  def teamstats
+    @team = Team.find(params[:id])
+    
   end
 
   private
