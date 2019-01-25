@@ -15,9 +15,9 @@ class TeamPlayer < ApplicationRecord
     modifier = 0.0
     case rating
     when 0..20
-      modifier = rand(0.2)
+      modifier = rand(0..0.2)
     when 21..30
-      modifier = rand(0.3)
+      modifier = rand(0..0.3)
     when 31..40
       modifier = rand(0.2..0.4)
     when 41..50
