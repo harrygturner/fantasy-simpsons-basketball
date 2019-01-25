@@ -14,7 +14,7 @@ class User < ApplicationRecord
   def current_budget
     total = self.budget
     player_total = 0
-    self.team.players.each do |player|
+    self.team.team_players.each do |player|
       player_total += player.value
     end
     c_b = total - player_total

@@ -1,10 +1,17 @@
-<h2 class="text-center">Select Your Players</h2>
+<div class="text-center">
+  <% if @team.players.count == 5 %>
+  <h3 style="margin-bottom: 40px;">Your team is now full! Now its time to start playing some games.</h3>
+  <h5 style="color: #FFD90F;">Don't worry though if players are underperforming sell them and choose again. Just head to your edit my team page.</h5>
+  <% else %>
+  <h2 class="text-center">Select Your Players</h2>
+  <% end %>
+</div>
+
 <% if flash[:error] %>
   <h4 class="text-center"><%= flash[:error] %></h4>
 <% end %>
+
 <div class="card-columns">
-
-
 <% @players.each do |player|%>
   <div class="card bg-info mb-3">
   <%= image_tag player.image, class: "card-img-top" %>

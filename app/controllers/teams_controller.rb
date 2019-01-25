@@ -22,7 +22,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    @players = @team.players
+    @players = @team.team_players
   end
 
   def mymatches
