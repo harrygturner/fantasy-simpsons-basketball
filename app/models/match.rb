@@ -42,13 +42,9 @@ class Match < ApplicationRecord
     self.team.team_players.each do |player|
       baskets = (player.modifier * teammod).to_i
       player.matchbaskets = baskets
-      if player.totalbaskets != 0
+      if player.total_games > 3
         if player.rating < 98
-          if player.experience > 0
-            player.rating += player.experience
-          else
-            player.rating -= player.experience
-          end
+          player.rating += player.experience
         end
       end
       player.totalbaskets += baskets
@@ -65,13 +61,9 @@ class Match < ApplicationRecord
     team.team_players.each do |player|
       baskets = (player.modifier * teammod).to_i
       player.matchbaskets = baskets
-      if player.totalbaskets != 0
+      if player.total_games > 3
         if player.rating < 98
-          if player.experience > 0
-            player.rating += player.experience
-          else
-            player.rating -= player.experience
-          end
+          player.rating += player.experience
         end
       end
       player.totalbaskets += baskets
