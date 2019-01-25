@@ -1,4 +1,7 @@
-
+<% if @matches.count == 0 %>
+  <h3 class='match_head'>You havent played any matches yet! What are you doing go play a match and then check your stats.</h3>
+  <h3 class="match_head" style="margin-top: 40px"><%= link_to "Play Match", play_path, style: "color: #FFD90F" %></h3>
+<% else %>
 <div class="text-center">
     <% @matches.each do |match| %>
         <div class="card-body flblock">
@@ -12,3 +15,5 @@
 
     <% end %>
 </div>
+
+<% end %>
