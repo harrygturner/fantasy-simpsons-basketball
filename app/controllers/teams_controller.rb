@@ -21,6 +21,7 @@ class TeamsController < ApplicationController
   end
 
   def edit
+    authorized_for(params[:id])
     @players = @team.team_players
   end
 
