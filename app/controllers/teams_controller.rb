@@ -21,9 +21,8 @@ class TeamsController < ApplicationController
   end
 
   def edit
-    # byebug
     authorized_for(params[:id])
-    @players = @team.players
+    @players = @team.team_players
   end
 
   def mymatches
