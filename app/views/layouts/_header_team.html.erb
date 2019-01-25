@@ -31,9 +31,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/teams">Other Teams</a>
           </li>
+          <% if @team.players.count == 5 %>
+            <li class="nav-item">
+              <a class="nav-link" href="/teams">Play Match</a>
+            </li>
+          <% end %>
         </ul>
         <span class="navbar-text">
-          Your current budget is: £<%= @user.current_budget %>
+          Your current budget is: <span class="alt-text">£</span><%= @user.current_budget %>
         </span>
       </div>
     </nav>

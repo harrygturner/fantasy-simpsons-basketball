@@ -1,24 +1,25 @@
 <div class="mx-auto text-warning" style="text-align: center; width:50%">
-<h2><%= @team.name %></h2>
+<h2 style="margin-bottom: 20px;"><%= @team.name %></h2>
+
 <% if @players.count < 5 %>
-  <h6>You only have <%= pluralize(@team.players.count, 'player') %> in your team, you need 5, <%= link_to "add more players", selectplayers_path %> here!</h6>
+  <h5>You only have <%= pluralize(@team.players.count, 'player') %> in your team, you need 5, <%= link_to "add more players", selectplayers_path %> here!</h5>
 <% elsif @players.count == 5 %>
-  <h6>Team is full! You need to remove some players.</h6>
+  <h5>Team is full! You need to sell some players.</h5>
 <% end %>
 </div>
-<div class="card-columns">
 
+<div class="card-columns">
 <% @players.each do |player|%>
   <div class="card bg-info mb-3">
-  <%= image_tag player.image, class: "card-img-top" %>
+  <%= image_tag player.player.image, class: "card-img-top" %>
     <div class="card text-center bg-warning mb-3">
       <h3 class="card-title"><%= player.name%></h3>
-        <h6 class="card-subtitle mb-2 lead">"<%=player.catchphrase%>"</h6>
-          <p class="card-text">Height: <%= player.height%></p>
-          <p class="card-text">Rating: <%= player.baserating%></p>
+        <h6 class="card-subtitle mb-2 lead">"<%=player.player.catchphrase%>"</h6>
+          <p class="card-text">Height: <%= player.player.height%></p>
+          <p class="card-text">Rating: <%= player.rating%></p>
           <p class="card-text">Value: £<%= player.value%></p>
         <%= form_tag("/removeplayer", method: "post") do %>
-          <%= hidden_field_tag :player_id, player.id %>
+          <%= hidden_field_tag :player_id, player.player.id %>
           <%= submit_tag "Remove Player", class:"btn btn-info" %>
         <% end %>
       </div>

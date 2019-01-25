@@ -6,12 +6,17 @@ class MatchesController < ApplicationController
 
   def playgame
     @game = Match.find(params[:match_id])
-    @game.score
-    @game.highest_scorer
-    @game.save
-    @@game_played = params[:game_played]
-    # redirect_to match_path(@game)
-    render 'sim'
+    if @game.team.players.count < 5 || @game.away_team.players.count < 5
+      flash[:team_not_full] = "Your team doesn't have enough people!"
+      redirect_to match_path(@game)
+    else
+      @game.score
+      @game.highest_scorer
+      @game.save
+      @@game_played = params[:game_played]
+      # redirect_to match_path(@game)
+      render 'sim'
+    end
   end
 
   def show
