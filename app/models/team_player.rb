@@ -8,7 +8,7 @@ class TeamPlayer < ApplicationRecord
   end
 
   def value
-    self.player.value
+    self.rating/3
   end
 
   def modifier
@@ -36,47 +36,60 @@ class TeamPlayer < ApplicationRecord
     modifier
   end
 
-  def total_home_games
+  def total_games
     self.team.matches.count
   end
 
-  def total_away_games
-    matches = []
-    Match.all.each do |match|
-      if match.team_id_2 == self.team.id
-        matches << match
-      end
-    end
-    matches.count
-  end
+  # def total_away_games
+  #   matches = []
+  #   Match.all.each do |match|
+  #     if match.team_id_2 == self.team.id
+  #       matches << match
+  #     end
+  #   end
+  #   matches.count
+  # end
 
-  def total_games
-    self.total_home_games + self.total_away_games
-  end
+  # def total_games
+  #   self.total_home_games + self.total_away_games
+  # end
 
   def average_score
     average = 0
-    total_games = total_home_games + total_away_games
+    #total_games = total_home_games + total_away_games
     total_baskets = self.totalbaskets
-    average = total_baskets/total_games
+    average = total_baskets/self.total_games
   end
 
   def experience
     rating = self.rating
     difference = self.matchbaskets - self.average_score
-    if rating >= 80 
+    case rating
+    when 92..100
+      if difference > 0
+        experience = difference/4
+      else
+        experience = difference*2
+      end
+    when 80..91
+      if difference > 0
+        experience = difference/3
+      else
+        experience = difference*1.5
+      end
+    when 60..79
       if difference > 0
         experience = difference/2
       else
         experience = difference
       end
-    elsif rating >= 50 && rating < 80
+    when 40..59
       if difference > 0
-        experience = difference/1.5
+        experience = difference
       else
         experience = difference/2
       end
-    else
+    when 0..39
       if difference > 0
         experience = difference*2
       else
