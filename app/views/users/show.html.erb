@@ -14,14 +14,18 @@
 
 <% provide(:title, @user.first_name) %>
 <div class="mx-auto" style="text-align: center; width:80%">
-<h3 class="text-warning" style="margin-bottom: 20px">
+<h2 class="text-warning" style="margin-bottom: 20px">
   <%= @user.name %>
-</h3>
+</h2>
 
 
 <% if @team != nil %>
-  <p class="text-warning"><span class="teamdisplay">Team Name</span>: <%= @team.name %></p>
-  <p class="text-warning"><span class="teamdisplay">Current Budget</span><span class="alt-text">:</span> £<%= @user.current_budget %></p>
+  <h4 class="text-warning"><span class="teamdisplay">Team Name</span><span class="alt-text">:</span> <%= @team.name %></h4>
+  <h5 class="text-warning", style="padding-bottom:10px"><span class="teamdisplay">Current Budget</span><span class="alt-text">:</span> £<%= @user.current_budget %></h5>
+  <% if @team.players.count < 5 %>
+    <%= link_to "Add more players", selectplayers_path, class:"btn btn-warning", style:"margin-bottom:10px" %>
+  <% end %>
+  
 <% if !@team.matches.empty? %>
  <%=button_to [:teamstat, id: @team.id], {method: :get, params: {id:@team.id}, class:"btn btn-warning"} do%>Team Stats<%end%>
  <%end%>
@@ -40,9 +44,6 @@
     </div>
     <% end %>
   </div>
-  <% if @team.players.count < 5 %>
-    <%= link_to "Add more players", selectplayers_path %>
-  <% end %>
 <% else %>
   <h5 style="margin-bottom:40px; margin-top: 40px;">You currently have a budget of <span class="alt-text">£</span><%= @user.budget %>, so what are you waiting for! Create your team and buy some players. You can't win the league all by yourself.</h5>
   <%= link_to 'Create your team!', new_team_path, class:"btn btn-warning"%>
