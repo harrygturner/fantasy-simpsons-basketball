@@ -67,34 +67,30 @@ class TeamPlayer < ApplicationRecord
     case rating
     when 92..100
       if difference > 0
-        experience = difference/4
+        experience = difference/5
       else
         experience = difference*2
       end
     when 80..91
       if difference > 0
-        experience = difference/3
+        experience = difference/4
       else
         experience = difference*1.5
       end
     when 60..79
       if difference > 0
-        experience = difference/2
+        experience = difference/3
       else
         experience = difference
       end
     when 40..59
       if difference > 0
-        experience = difference
-      else
         experience = difference/2
+      else
+        experience = difference
       end
     when 0..39
-      if difference > 0
-        experience = difference*2
-      else
-        experience = 0
-      end
+      experience = difference
     end
     experience.to_i
   end
