@@ -31,14 +31,6 @@ class TeamsController < ApplicationController
 
   def teamstats
     @team = Team.find(params[:id])
-    byebug
-    if @team.matches == 0
-      flash[:nomatches] = "No Matches"
-      redirect_to user_path(@user)
-    else
-      redirect_to 'teamstats'
-    end
-    
   end
 
   private
