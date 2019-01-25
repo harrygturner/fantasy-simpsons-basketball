@@ -22,7 +22,9 @@
 <% if @team != nil %>
   <p class="text-warning"><span class="teamdisplay">Team Name</span>: <%= @team.name %></p>
   <p class="text-warning"><span class="teamdisplay">Current Budget</span><span class="alt-text">:</span> £<%= @user.current_budget %></p>
+<% if !@team.matches.empty? %>
  <%=button_to [:teamstat, id: @team.id], {method: :get, params: {id:@team.id}, class:"btn btn-warning"} do%>Team Stats<%end%>
+ <%end%>
   </div>
 <div class="card-columns">
   <% @team.team_players.each do |team_player|%>
