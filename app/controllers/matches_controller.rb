@@ -15,7 +15,7 @@ class MatchesController < ApplicationController
       @game.save
       @@game_played = params[:game_played]
       # redirect_to match_path(@game)
-      render 'sim'
+      render "sim"
     end
   end
 
@@ -24,7 +24,6 @@ class MatchesController < ApplicationController
     @hometeam = @match.team.team_players
     @awayteam = @match.away_team.team_players
     @location = @@game_location
-
     if params[:played] == "1"
       @played = "true"
     else

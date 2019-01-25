@@ -111,7 +111,9 @@ class Match < ApplicationRecord
     m2 = self.dup
     baskets1 = m2.baskets_team_1
     baskets2 = m2.baskets_team_2
+    mvp = self.man_of_match
     t1 = m2.team_id
+    m2.man_of_match = mvp
     m2.team_id_2 = t1
     m2.baskets_team_2 = baskets1
     m2.baskets_team_1 = baskets2
