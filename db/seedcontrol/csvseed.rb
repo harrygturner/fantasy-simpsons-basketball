@@ -40,7 +40,7 @@ class CsvSeed
                         toadd[keys[i]] = line[i]
                         # binding.pry
                     elsif keys[i] == :baserating
-                        toadd[keys[i]] = rand(20..100)
+                        toadd[keys[i]] = rand(20..95)
                     elsif keys[i] == :height
                         toadd[keys[i]] = rand(155..215)
                     end

@@ -8,7 +8,12 @@ class TeamPlayer < ApplicationRecord
   end
 
   def value
-    self.rating/3
+    
+    if self.rating 
+      self.rating/3
+    else
+      self.player.baserating/3
+    end
   end
 
   def modifier
