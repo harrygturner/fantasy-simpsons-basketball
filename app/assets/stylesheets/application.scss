@@ -80,3 +80,9 @@ h3{
 .morespacing{
   margin-top: 0.5rem;
 }
+
+.card-img-top{
+  max-height: 400px;
+  max-width: auto;
+  object-fit: contain;
+}
