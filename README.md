@@ -1,6 +1,6 @@
-# fantasy-simpsons-basketball
+# Fantasy Simpsons Basketball
 
-This is a fantasy basketball game simualtor which allows you to pick a tem of well known Simpson characters and pit them againt computer generated teams. It is written in Ruby for web browsers using HTML5.
+This is a fantasy basketball game simulator which allows you to pick a team of well known Simpson characters and pit them against computer generated teams. It is written in Ruby for web browsers using HTML5.
 
 ## Project Requirements
 
@@ -43,9 +43,23 @@ Players ratings can also improve depending on their performance in games this wi
 - Killer web interface 
 - Player ratings change depending on their game performances 
 
+## Demo & Tutorial
+
+[Demo](https://youtu.be/hTGyqLJNlJQ)
+
+## Tech/Frameworks Used
+
+<b>Built with</b>
+- [Ruby on Rails](https://rubyonrails.org/)
+- CSS
+- [Bootstrap](https://getbootstrap.com/) 
+- Cookies 
+
 ## Installation
 
 ## Contributing 
+
+This application was created by Harry Turner ([harrygturner](https://github.com/harrygturner)), George Jeffrey ([georgejeffrey](https://github.com/georgejeffery)) and Anderson Coelho ([darkraine](https://github.com/darkraine))
 
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
